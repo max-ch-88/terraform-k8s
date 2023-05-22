@@ -26,6 +26,19 @@ resource "kubernetes_namespace" "namespace" {
   }
 }
 
+resource "kubernetes_resource_quota" "limit_range" {
+  metadata {
+    name      = "quota"
+    namespace = var.name
+  }
+  spec {
+    hard = {
+        "limits.cpu"    = var.limit_cpu
+        "limits.memory" = var.limit_mem
+    }
+  }
+}
+
 module "namespace_roles" {
   source = "../namespace-roles"
 

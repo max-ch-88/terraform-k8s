@@ -26,3 +26,13 @@ variable "dependencies" {
   type        = list(string)
   default     = []
 }
+
+variable "limit_cpu" {
+  description = "CPU quota"
+  type        = string
+}
+
+variable "limit_mem" {
+  description = "Memory quota"
+  type        = string
+}

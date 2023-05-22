@@ -14,8 +14,10 @@ provider "kubernetes" {
 }
 
 module "namespace" {
-  source = "./modules/namespace"
-  name   = var.name
+  source    = "./modules/namespace"
+  name      = var.name
+  limit_cpu = var.limit_cpu
+  limit_mem = var.limit_mem
 }
 
 module "service_account_access_all" {
